@@ -1,6 +1,56 @@
 {
-    "$schema": "https://json-schema.org/draft/
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "type": "object",
+    "properties": {
+        "demos": {
+            "type": "object",
+            "title": "",
+            "required": [
+                "udg"
+            ],
+            "properties": {
+                "udg": {
+                    "type": "array",
+                    "default": [],
+                    "title": "",
+                    "items": {
+                        "required": [
+                            "location",
+                            "name",
+                            "description",
+                            "features",
+                            "minTykVersion"
+                        ],
+                        "properties": {
+                            "location": {
+                                "type": "string",
+                                "title": "udg/first-demo*****??"
+                            },
+                            "name": {
+                                "type": "string",
+                                "title": "First UDG Demo*****??"
+                            },
+                            "description": {
+                                "type": "string",
+                                "title": "This UDG demo is very simple*****??"
+                            },
+                            "features": {
+                                "type": "array",
+                                "title": "GraphQL DataSource",
+                                "items": {
+                                    "type": "string",
+                                    "title": "****? not sure about this section"
+                                }
+                            },
+                            "minTykVersion": {
+                                "type": "integer"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
-    
 
 

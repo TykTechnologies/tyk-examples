@@ -1,24 +1,28 @@
 {
     "demos": {
-        "udg": [{
-                "location": "udg/first-demo",
-                "name": "First UDG Demo",
-                "description": "This UDG demo is very simple",
-                "features": [
-                    "GraphQL DataSource",
-                    "REST DataSource"
-                ],
-                "minTykVersion": "5.0"
-            },
-            {
-                "name": "First UDG Demo",
-                "description": "This UDG demo is very simple",
-                "features": [
-                    "GraphQL DataSource",
-                    "REST DataSource"
-                ],
-                "minTykVersion": "5.0"
-            }
-        ]
+      "udg": [
+        {
+          "location": "udg/first-demo",
+          "name": "First UDG Demo",
+          "description": "This UDG demo is very simple",
+          "features": [
+            "GraphQL DataSource",
+            "REST DataSource"
+          ],
+          "minTykVersion": "5.0"
+        },
+        {
+          "location": "udg/complex-demo",
+          "name": "Complex UDG Demo",
+          "description": "This UDG demo is very complex",
+          "features": [
+            "GraphQL DataSource",
+            "REST DataSource",
+            "Kafka DataSource",
+            "Subscriptions"
+          ],
+          "minTykVersion": "5.0"
+        }
+      ]
     }
-}
+  }
