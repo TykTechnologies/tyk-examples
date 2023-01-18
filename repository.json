@@ -1,0 +1,24 @@
+{
+    "demos": {
+        "udg": [{
+                "location": "udg/first-demo",
+                "name": "First UDG Demo",
+                "description": "This UDG demo is very simple",
+                "features": [
+                    "GraphQL DataSource",
+                    "REST DataSource"
+                ],
+                "minTykVersion": "5.0"
+            },
+            {
+                "name": "First UDG Demo",
+                "description": "This UDG demo is very simple",
+                "features": [
+                    "GraphQL DataSource",
+                    "REST DataSource"
+                ],
+                "minTykVersion": "5.0"
+            }
+        ]
+    }
+}
