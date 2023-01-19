@@ -1,10 +1,9 @@
 {
-    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "$schema": "https://json-schema.org/draft-04/schema#",
     "type": "object",
     "properties": {
-        "demos": {
+        "examples": {
             "type": "object",
-            "title": "",
             "required": [
                 "udg"
             ],
@@ -12,7 +11,6 @@
                 "udg": {
                     "type": "array",
                     "default": [],
-                    "title": "",
                     "items": {
                         "required": [
                             "location",
@@ -23,27 +21,22 @@
                         ],
                         "properties": {
                             "location": {
-                                "type": "string",
-                                "title": "udg/first-demo*****??"
+                                "type": "string"
                             },
                             "name": {
-                                "type": "string",
-                                "title": "First UDG Demo*****??"
+                                "type": "string"
                             },
                             "description": {
-                                "type": "string",
-                                "title": "This UDG demo is very simple*****??"
+                                "type": "string"
                             },
                             "features": {
                                 "type": "array",
-                                "title": "GraphQL DataSource",
                                 "items": {
-                                    "type": "string",
-                                    "title": "****? not sure about this section"
+                                    "type": "string"
                                 }
                             },
                             "minTykVersion": {
-                                "type": "integer"
+                                "type": "string"
                             }
                         }
                     }

@@ -4,15 +4,18 @@ on:
     pull requests:
         branches:
         - main 
-        jobs:
-        validate:
-          runs-on: ubuntu-latest
-          steps:
-            - uses: actions/checkout@v3
-            - name: Validate JSON
-              uses: walbo/validate-json@v1.1.0
-              with:
-                files: folder/**/*.json
-      
-                # optional, defaults to `$schema` in your JSON file
-                schema: schemas/schema.json
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Validate JSON
+        uses: walbo/validate-json@v1.1.0
+        with:
+          files: repository.json 
+          schema: repository.schema.json
+          fail-on-missing-schema: true
+          schema-version: draft-04
+          strict: true
+          allow-matching-properties: false
+          allow-union-types: true
