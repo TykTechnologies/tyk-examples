@@ -1,7 +1,7 @@
 name: CI test
 
 on: 
-    pull requests:
+    pull_requests:
         branches:
         - main 
 jobs:
