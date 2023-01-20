@@ -15,7 +15,7 @@ jobs:
           files: repository.json 
           schema: repository.schema.json
           fail-on-missing-schema: true
-          schema-version: draft2020
+          schema-version: draft/2020-12
           strict: true
           allow-matching-properties: false
           allow-union-types: true
