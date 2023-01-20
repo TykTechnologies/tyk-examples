@@ -1,7 +1,7 @@
 name: CI test
 
 on: 
-    pull requests:
+    pull_request:
         branches:
         - main 
 jobs:
@@ -15,7 +15,7 @@ jobs:
           files: repository.json 
           schema: repository.schema.json
           fail-on-missing-schema: true
-          schema-version: draft-04
+          schema-version: draft-07
           strict: true
           allow-matching-properties: false
           allow-union-types: true
