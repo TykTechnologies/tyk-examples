@@ -9,7 +9,7 @@
             "GraphQL DataSource",
             "REST DataSource"
           ],
-          "minTykVersion": "3"
+          "minTykVersion": 5
         },
         {
           "location": "udg/complex-demo",
