@@ -2,6 +2,15 @@
     "examples": {
       "udg": [
         {
+          "location": "udg/vat-checker",
+          "name": "VAT number checker UDG",
+          "description": "Simple REST API wrapped in GQL using Universal Data Graph that allows user to check validity of a VAT number and display some details about it.",
+          "features": [
+            "REST DataSource"
+          ],
+          "minTykVersion": "5.0"
+        },
+        {
           "location": "udg/first-demo",
           "name": "First UDG Demo",
           "description": "This UDG demo is very simple",
