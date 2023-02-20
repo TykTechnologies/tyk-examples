@@ -6,7 +6,18 @@
           "name": "VAT number checker UDG",
           "description": "Simple REST API wrapped in GQL using Universal Data Graph that allows user to check validity of a VAT number and display some details about it.",
           "features": [
-            "REST DataSource"
+            "REST Datasource"
+          ],
+          "minTykVersion": "5.0"
+        },
+        {
+          "location": "udg/geo-info",
+          "name": "Geo information about the World",
+          "description": "Countries GQL API extended with information from Restcountries",
+          "features": [
+            "REST Datasource",
+            "GQL Datasource",
+            "Field mapping"
           ],
           "minTykVersion": "5.0"
         }
