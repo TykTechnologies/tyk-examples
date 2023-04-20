@@ -3,6 +3,12 @@
 This repository contains examples that can be imported into Tyk Gateway or Tyk Dashboard.
 This can be done either by using [tyk-sync](https://github.com/TykTechnologies/tyk-sync) as CLI or by manually copying the API/Policy Definitions.
 
+Quick navigation:
+
+- [Import example using tyk-sync](#using-tyk-sync)
+- [Import example manually via Tyk Dashboard](#for-dashboard)
+- [Import example manually via Tyk Gateway API](#for-gateway-open-source)
+
 ## Importing examples
 In terms of importing examples `tyk-sync` will be the easier options to get started quickly. 
 The manual approach on the other hand will allow you to pick the parts of the examples that you need.
