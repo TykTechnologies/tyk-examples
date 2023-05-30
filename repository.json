@@ -13,13 +13,25 @@
         {
           "location": "udg/geo-info",
           "name": "Geo information about the World",
-          "description": "Countries GQL API extended with information from Restcountries",
+          "description": "Countries GQL API extended with information from geocode.xyz",
           "features": [
             "REST Datasource",
             "GQL Datasource",
             "Field mapping"
           ],
           "minTykVersion": "5.0"
+        },
+        {
+          "location": "udg/react-conferences",
+          "name": "React conferences in Europe",
+          "description": "Information about React conferences in Europe. This Data Graph stitches together two GQL APIs. The flag image is added by using Trevorblades API as a data source.",
+          "features": [
+            "GQL Datasource",
+            "Stitching together 2 GQL APIs",
+            "Field mapping for GQL data source",
+            "Renaming fields in UDG"
+          ],
+          "minTykVersion": "5.1"
         }
       ]
     }
