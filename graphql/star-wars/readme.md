@@ -12,7 +12,7 @@ It's a great starting point!
 
 ## What will happen after you click "Use example" button?
 
-- You'll see `Star Wars API` in your list of APIs
+- You'll see `Star Wars API` in your API details page
 - You'll also get a nice green pop-up with an authorization key - copy that, you'll need it!
 
 ## Try it out!
