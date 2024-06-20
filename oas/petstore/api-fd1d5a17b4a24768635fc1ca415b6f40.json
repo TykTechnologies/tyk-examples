@@ -9,7 +9,11 @@
         "url": "https://localhost:8080/petstore/"
       }
     ],
-    "security": [],
+    "security": [
+      {
+        "authToken": []
+      }
+    ],
     "paths": {
       "/pet/{petId}": {
         "get": {
@@ -33,7 +37,13 @@
       }
     },
     "components": {
-      "securitySchemes": {}
+      "securitySchemes": {
+        "authToken": {
+          "type": "apiKey",
+          "in": "header",
+          "name": "Authorization"
+        }
+      }
     },
     "x-tyk-api-gateway": {
       "info": {
@@ -64,6 +74,14 @@
         }
       },
       "server": {
+        "authentication": {
+          "enabled": true,
+          "securitySchemes": {
+            "authToken": {
+              "enabled": true
+            }
+          }
+        },
         "listenPath": {
           "strip": true,
           "value": "/petstore/"
