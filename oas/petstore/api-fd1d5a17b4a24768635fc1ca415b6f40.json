@@ -1,5 +1,6 @@
 {
-    "info": {
+   "oas":
+   { "info": {
       "title": "petstore",
       "version": "1.0.0"
     },
@@ -91,4 +92,5 @@
         "url": "https://petstore3.swagger.io/api/v3"
       }
     }
+  }
   }
