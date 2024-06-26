@@ -32,23 +32,6 @@
             "Renaming fields in UDG"
           ],
           "minTykVersion": "5.1"
-        },
-        {
-          "location": "graphql/star-wars",
-          "name": "Star Wars GQL API",
-          "description": "This GraphQL API retrieves all the Star Wars data you've ever wanted: Planets, Spaceships, Vehicles, People, Films and Species from all seven Star Wars films.",
-          "features": [
-            "Authorization Token"
-          ],
-          "minTykVersion": "5.4"
-        },
-        {
-          "location": "oas/petstore",
-          "name": "Petstore OAS HTTP API",
-          "description": "This is a sample Pet Store Server based on the OpenAPI 3.0 specification.",
-          "features": [
-          ],
-          "minTykVersion": "5.4"
         }
       ],
       "graphql": [
@@ -63,14 +46,6 @@
         }
       ],
       "oas": [
-        {
-          "location": "oas/petstore",
-          "name": "Petstore OAS HTTP API",
-          "description": "This is a sample Pet Store Server based on the OpenAPI 3.0 specification.",
-          "features": [
-          ],
-          "minTykVersion": "5.4"
-        }
       ]
     }
   }
