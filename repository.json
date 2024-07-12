@@ -46,6 +46,14 @@
         }
       ],
       "oas": [
+        {
+          "location": "oas/petstore",
+          "name": "Petstore OAS HTTP API",
+          "description": "This is a sample Pet Store Server based on the OpenAPI 3.0 specification.",
+          "features": [
+          ],
+          "minTykVersion": "5.4"
+        }
       ]
     }
   }
