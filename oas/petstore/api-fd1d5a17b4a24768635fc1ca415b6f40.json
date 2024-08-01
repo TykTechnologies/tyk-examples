@@ -1,6 +1,5 @@
 {
-   "oas":
-   { "info": {
+    "info": {
       "title": "petstore",
       "version": "1.0.0"
     },
@@ -48,9 +47,6 @@
     },
     "x-tyk-api-gateway": {
       "info": {
-        "dbId": "6673f2bf84d22d01985f74e6",
-        "id": "fd1d5a17b4a24768635fc1ca415b6f40",
-        "orgId": "60dc2ae33ff411a0ddd459d9",
         "name": "petstore",
         "state": {
           "active": true,
@@ -92,5 +88,4 @@
         "url": "https://petstore3.swagger.io/api/v3"
       }
     }
-  }
   }
