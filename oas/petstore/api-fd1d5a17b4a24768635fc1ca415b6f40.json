@@ -7,7 +7,7 @@
        "openapi":"3.0.3",
        "servers":[
           {
-             "url":"https://localhost:8080/petstore/"
+             "url":"https://petstore3.swagger.io/api/v3"
           }
        ],
        "security":[
