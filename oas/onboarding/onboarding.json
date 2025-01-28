@@ -1,0 +1,365 @@
+{
+  "components": {
+      "securitySchemes": {
+          "ApiKeyAuth": {
+              "in": "header",
+              "name": "Authorization",
+              "type": "apiKey"
+          }
+      }
+  },
+  "info": {
+      "description": "API for managing coffee shop orders",
+      "title": "Coffee Shop API",
+      "version": "v1"
+  },
+  "openapi": "3.0.3",
+  "paths": {
+      "/menu": {
+          "get": {
+              "description": "Retrieves the complete menu of available coffee and food items.",
+              "operationId": "menuGET",
+              "responses": {
+                  "200": {
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "example": [
+                                      {
+                                          "description": "A shot of rich, dark coffee",
+                                          "id": 1,
+                                          "name": "Tykspresso",
+                                          "price": 2.5
+                                      },
+                                      {
+                                          "description": "Espresso with steamed milk and foam",
+                                          "id": 2,
+                                          "name": "CappuTyko",
+                                          "price": 3.5
+                                      }
+                                  ],
+                                  "items": {
+                                      "properties": {
+                                          "description": {
+                                              "type": "string"
+                                          },
+                                          "id": {
+                                              "format": "int64",
+                                              "type": "integer"
+                                          },
+                                          "name": {
+                                              "type": "string"
+                                          },
+                                          "price": {
+                                              "format": "float",
+                                              "type": "number"
+                                          }
+                                      },
+                                      "type": "object"
+                                  },
+                                  "type": "array"
+                              }
+                          }
+                      },
+                      "description": "Successful response"
+                  }
+              },
+              "summary": "Get the full menu"
+          }
+      },
+      "/orders": {
+          "post": {
+              "description": "Creates a new order.",
+              "operationId": "ordersPOST",
+              "requestBody": {
+                  "content": {
+                      "application/json": {
+                          "schema": {
+                              "example": {
+                                  "address": "123 Coffee St, Barista City",
+                                  "contactNumber": "123456789",
+                                  "customerName": "John Doe",
+                                  "items": [
+                                      {
+                                          "itemId": 1,
+                                          "quantity": 2
+                                      },
+                                      {
+                                          "itemId": 3,
+                                          "quantity": 1,
+                                          "specialInstructions": "No sugar"
+                                      }
+                                  ]
+                              },
+                              "properties": {
+                                  "address": {
+                                      "type": "string"
+                                  },
+                                  "contactNumber": {
+                                      "type": "string"
+                                  },
+                                  "customerName": {
+                                      "type": "string"
+                                  },
+                                  "items": {
+                                      "items": {
+                                          "properties": {
+                                              "itemId": {
+                                                  "format": "int64",
+                                                  "type": "integer"
+                                              },
+                                              "quantity": {
+                                                  "type": "integer"
+                                              },
+                                              "specialInstructions": {
+                                                  "type": "string"
+                                              }
+                                          },
+                                          "required": [
+                                              "itemId",
+                                              "quantity"
+                                          ],
+                                          "type": "object"
+                                      },
+                                      "type": "array"
+                                  }
+                              },
+                              "required": [
+                                  "items"
+                              ],
+                              "type": "object"
+                          }
+                      }
+                  },
+                  "required": true
+              },
+              "responses": {
+                  "201": {
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "example": {
+                                      "orderId": 123
+                                  },
+                                  "properties": {
+                                      "orderId": {
+                                          "format": "int64",
+                                          "type": "integer"
+                                      }
+                                  },
+                                  "type": "object"
+                              }
+                          }
+                      },
+                      "description": "Order created successfully"
+                  }
+              },
+              "summary": "Place an order"
+          }
+      },
+      "/orders/{orderId}": {
+          "get": {
+              "description": "Retrieves details of a specific order.",
+              "operationId": "orders/{orderId}GET",
+              "parameters": [
+                  {
+                      "description": "ID of the order",
+                      "in": "path",
+                      "name": "orderId",
+                      "required": true,
+                      "schema": {
+                          "format": "int64",
+                          "type": "integer"
+                      }
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "example": {
+                                      "address": "123 Coffee St, Barista City",
+                                      "contactNumber": "123456789",
+                                      "customerName": "John Doe",
+                                      "items": [
+                                          {
+                                              "itemId": 1,
+                                              "name": "Tykspresso",
+                                              "quantity": 2
+                                          },
+                                          {
+                                              "itemId": 3,
+                                              "name": "Latte",
+                                              "quantity": 1,
+                                              "specialInstructions": "No sugar"
+                                          }
+                                      ],
+                                      "orderId": 123,
+                                      "status": "Preparing",
+                                      "totalPrice": 8.5
+                                  },
+                                  "properties": {
+                                      "address": {
+                                          "type": "string"
+                                      },
+                                      "contactNumber": {
+                                          "type": "string"
+                                      },
+                                      "customerName": {
+                                          "type": "string"
+                                      },
+                                      "items": {
+                                          "items": {
+                                              "properties": {
+                                                  "itemId": {
+                                                      "format": "int64",
+                                                      "type": "integer"
+                                                  },
+                                                  "name": {
+                                                      "type": "string"
+                                                  },
+                                                  "quantity": {
+                                                      "type": "integer"
+                                                  },
+                                                  "specialInstructions": {
+                                                      "type": "string"
+                                                  }
+                                              },
+                                              "type": "object"
+                                          },
+                                          "type": "array"
+                                      },
+                                      "orderId": {
+                                          "format": "int64",
+                                          "type": "integer"
+                                      },
+                                      "status": {
+                                          "type": "string"
+                                      },
+                                      "totalPrice": {
+                                          "format": "float",
+                                          "type": "number"
+                                      }
+                                  },
+                                  "type": "object"
+                              }
+                          }
+                      },
+                      "description": "Order details retrieved successfully"
+                  },
+                  "404": {
+                      "description": "Order not found"
+                  }
+              },
+              "summary": "Get order details"
+          }
+      }
+  },
+  "security": [
+      {
+          "ApiKeyAuth": []
+      }
+  ],
+  "servers": [
+      {
+          "url": "https://continuing-grammar-gw.aws-euc1.cloud-ara.tyk.io/coffee-shop"
+      },
+      {
+          "url": "http://continuing-grammar-gw.aws-euc1.cloud-ara.tyk.io"
+      }
+  ],
+  "x-tyk-api-gateway": {
+      "info": {
+          "dbId": "6798b4c45cf3bd0001e8bddb",
+          "id": "b90223f2513440e8420a85ae552c5e22",
+          "name": "Coffee Shop API",
+          "orgId": "67499633ba0e870001c69fd5",
+          "state": {
+              "active": true
+          }
+      },
+      "middleware": {
+          "global": {
+              "contextVariables": {
+                  "enabled": true
+              },
+              "trafficLogs": {
+                  "enabled": true
+              }
+          },
+          "operations": {
+              "menuGET": {
+                  "allow": {
+                      "enabled": true
+                  },
+                  "mockResponse": {
+                      "body": "{\n  \"example\": [\n    {\n      \"description\": \"A shot of rich, dark coffee\",\n      \"id\": 1,\n      \"name\": \"Tykspresso\",\n      \"price\": 2.5\n    },\n    {\n      \"description\": \"Espresso with steamed milk and foam\",\n      \"id\": 2,\n      \"name\": \"CappuTyko\",\n      \"price\": 3.5\n    }\n  ],\n  \"items\": {\n    \"properties\": {\n      \"description\": {\n        \"type\": \"string\"\n      },\n      \"id\": {\n        \"format\": \"int64\",\n        \"type\": \"integer\"\n      },\n      \"name\": {\n        \"type\": \"string\"\n      },\n      \"price\": {\n        \"format\": \"float\",\n        \"type\": \"number\"\n      }\n    },\n    \"type\": \"object\"\n  },\n  \"type\": \"array\"\n}",
+                      "code": 200,
+                      "enabled": true,
+                      "fromOASExamples": {
+                          "code": 200,
+                          "contentType": "application/json",
+                          "enabled": true
+                      }
+                  }
+              },
+              "orders/{orderId}GET": {
+                  "allow": {
+                      "enabled": true
+                  },
+                  "mockResponse": {
+                      "enabled": true,
+                      "fromOASExamples": {
+                          "code": 200,
+                          "contentType": "application/json",
+                          "enabled": true
+                      }
+                  },
+                  "validateRequest": {
+                      "enabled": true,
+                      "errorResponseCode": 422
+                  }
+              },
+              "ordersPOST": {
+                  "allow": {
+                      "enabled": true
+                  },
+                  "mockResponse": {
+                      "enabled": true,
+                      "fromOASExamples": {
+                          "enabled": true
+                      }
+                  },
+                  "validateRequest": {
+                      "enabled": true,
+                      "errorResponseCode": 422
+                  }
+              }
+          }
+      },
+      "server": {
+          "authentication": {
+              "enabled": true,
+              "securitySchemes": {
+                  "ApiKeyAuth": {
+                      "enabled": true
+                  }
+              }
+          },
+          "gatewayTags": {
+              "enabled": true,
+              "tags": [
+                  "edge"
+              ]
+          },
+          "listenPath": {
+              "strip": true,
+              "value": "/coffee-shop"
+          }
+      },
+      "upstream": {
+          "url": "http://continuing-grammar-gw.aws-euc1.cloud-ara.tyk.io"
+      }
+  }
+}
