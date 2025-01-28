@@ -264,7 +264,7 @@
     ],
     "servers": [
       {
-        "url": "http://continuing-grammar-gw.aws-euc1.cloud-ara.tyk.io"
+        "url": "http://continuing-grammar-gw.aws-euc1.cloud-ara.tyk.io/coffee-shop"
       }
     ],
     "x-tyk-api-gateway": {
