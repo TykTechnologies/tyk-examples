@@ -1,0 +1,9 @@
+{
+  "type": "apidef",
+  "files": [
+    {
+      "file": "onboarding.json",
+      "oas": {}
+    }
+  ]
+}
