@@ -60,7 +60,7 @@
           "description": "API for managing coffee shop orders",
           "features": [
           ],
-          "minTykVersion": "5.7"
+          "minTykVersion": "5.6"
         }
       ]
     }
