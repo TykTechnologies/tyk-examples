@@ -53,6 +53,14 @@
           "features": [
           ],
           "minTykVersion": "5.4"
+        },
+        {
+          "location": "oas/onboarding",
+          "name": "Coffee Shop API",
+          "description": "API for managing coffee shop orders",
+          "features": [
+          ],
+          "minTykVersion": "5.7"
         }
       ]
     }
