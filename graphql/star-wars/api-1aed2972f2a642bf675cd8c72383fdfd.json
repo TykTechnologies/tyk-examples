@@ -193,7 +193,7 @@
         "events": {}
       },
       "proxy": {
-        "target_url": "https://swapi-graphql.netlify.app/.netlify/functions/index",
+        "target_url": "https://swapi-graphql.netlify.app/graphql",
         "service_discovery": {
           "endpoint_returns_list": false,
           "cache_timeout": 0,
