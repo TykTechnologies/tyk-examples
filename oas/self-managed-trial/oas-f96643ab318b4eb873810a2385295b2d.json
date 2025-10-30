@@ -1,0 +1,842 @@
+{
+  "oas": {
+    "components": {
+      "securitySchemes": {
+        "authToken": {
+          "in": "header",
+          "name": "Authorization",
+          "type": "apiKey"
+        }
+      }
+    },
+    "info": {
+      "description": "HTTP client testing endpoints powered by go‑httpbin/httpbingo.org :contentReference[oaicite:1]{index=1}",
+      "title": "httpbingo API",
+      "version": "2025-08-01"
+    },
+    "openapi": "3.0.3",
+    "paths": {
+      "/env": {
+        "get": {
+          "operationId": "envGET",
+          "responses": {
+            "200": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object"
+                  }
+                }
+              },
+              "description": "env variables map"
+            }
+          },
+          "summary": "Environment variables named HTTPBIN_ENV_*"
+        }
+      },
+      "/etag/{etag}": {
+        "get": {
+          "operationId": "etag/{etag}GET",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "etag",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "matched"
+            },
+            "304": {
+              "description": "not modified"
+            },
+            "412": {
+              "description": "precondition failed"
+            }
+          },
+          "summary": "ETag behavior"
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "etag",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "/get": {
+        "get": {
+          "operationId": "getGET",
+          "parameters": [
+            {
+              "in": "query",
+              "name": "foo",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "properties": {
+                      "args": {
+                        "type": "object"
+                      },
+                      "headers": {
+                        "type": "object"
+                      },
+                      "origin": {
+                        "type": "string"
+                      },
+                      "url": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  }
+                }
+              },
+              "description": "echo of args, headers, origin, url"
+            }
+          },
+          "summary": "Return request data"
+        }
+      },
+      "/gzip": {
+        "get": {
+          "operationId": "gzipGET",
+          "responses": {
+            "200": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object"
+                  }
+                }
+              },
+              "description": "gzipped response"
+            }
+          },
+          "summary": "GZIP encoded JSON"
+        }
+      },
+      "/headers": {
+        "get": {
+          "operationId": "headersGET",
+          "responses": {
+            "200": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "properties": {
+                      "headers": {
+                        "type": "object"
+                      }
+                    },
+                    "type": "object"
+                  }
+                }
+              },
+              "description": "echo headers"
+            }
+          },
+          "summary": "Return request headers"
+        }
+      },
+      "/hidden-basic-auth/{user}/{password}": {
+        "get": {
+          "operationId": "hidden-basic-auth/{user}/{password}GET",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "user",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "in": "path",
+              "name": "password",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "authenticated"
+            },
+            "404": {
+              "description": "auth failed"
+            }
+          },
+          "summary": "BasicAuth hidden endpoint"
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "password",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "/ip": {
+        "get": {
+          "operationId": "ipGET",
+          "responses": {
+            "200": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "properties": {
+                      "origin": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  }
+                }
+              },
+              "description": "client's IP in JSON"
+            }
+          },
+          "summary": "Get origin IP(s)"
+        }
+      },
+      "/json": {
+        "get": {
+          "operationId": "jsonGET",
+          "responses": {
+            "200": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object"
+                  }
+                }
+              },
+              "description": "simple JSON"
+            }
+          },
+          "summary": "Return sample JSON"
+        }
+      },
+      "/mock": {
+        "get": {
+          "operationId": "mockget",
+          "responses": {
+            "200": {
+              "description": ""
+            }
+          }
+        }
+      },
+      "/redirect-to": {
+        "get": {
+          "operationId": "redirect-toGET",
+          "parameters": [
+            {
+              "in": "query",
+              "name": "url",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "in": "query",
+              "name": "status_code",
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "302": {
+              "description": "redirection"
+            },
+            "307": {
+              "description": "temporary redirect"
+            }
+          },
+          "summary": "Redirect to given URL"
+        }
+      },
+      "/redirect/{n}": {
+        "get": {
+          "operationId": "redirect/{n}GET",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "n",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "302": {
+              "description": "perform redirects"
+            }
+          },
+          "summary": "Redirect n times (302)"
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "n",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "/relative-redirect/{n}": {
+        "get": {
+          "operationId": "relative-redirect/{n}GET",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "n",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "302": {
+              "description": "relative redirect repeated"
+            }
+          },
+          "summary": "Relative redirect n times"
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "n",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "/sse": {
+        "get": {
+          "operationId": "sseGET",
+          "parameters": [
+            {
+              "in": "query",
+              "name": "delay",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "in": "query",
+              "name": "duration",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "in": "query",
+              "name": "count",
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "content": {
+                "text/event-stream": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "description": "SSE event stream"
+            }
+          },
+          "summary": "Server-Sent Events stream"
+        }
+      },
+      "/status/{code}": {
+        "get": {
+          "operationId": "status/{code}GET",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "code",
+              "required": true,
+              "schema": {
+                "format": "int32",
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "default": {
+              "description": "arbitrary status"
+            }
+          },
+          "summary": "Return a status code"
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "code",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "/stream-bytes/{n}": {
+        "get": {
+          "operationId": "stream-bytes/{n}GET",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "n",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            },
+            {
+              "in": "query",
+              "name": "seed",
+              "schema": {
+                "type": "integer"
+              }
+            },
+            {
+              "in": "query",
+              "name": "chunk_size",
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "content": {
+                "application/octet-stream": {
+                  "schema": {
+                    "format": "binary",
+                    "type": "string"
+                  }
+                }
+              },
+              "description": "raw binary stream"
+            }
+          },
+          "summary": "Stream n bytes"
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "n",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "/stream/{n}": {
+        "get": {
+          "operationId": "stream/{n}GET",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "n",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "items": {
+                      "type": "object"
+                    },
+                    "type": "array"
+                  }
+                }
+              },
+              "description": "stream of up to n JSON objects"
+            }
+          },
+          "summary": "Stream JSON lines"
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "n",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "/unstable": {
+        "get": {
+          "operationId": "unstableGET",
+          "parameters": [
+            {
+              "in": "query",
+              "name": "failure_rate",
+              "schema": {
+                "type": "number"
+              }
+            },
+            {
+              "in": "query",
+              "name": "seed",
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "success"
+            },
+            "500": {
+              "description": "random failure"
+            }
+          },
+          "summary": "Fails randomly ~50%"
+        }
+      },
+      "/user-agent": {
+        "get": {
+          "operationId": "user-agentGET",
+          "responses": {
+            "200": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "properties": {
+                      "user‑agent": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  }
+                }
+              },
+              "description": "user-agent info"
+            }
+          },
+          "summary": "Return User-Agent header"
+        }
+      },
+      "/uuid": {
+        "get": {
+          "operationId": "uuidGET",
+          "responses": {
+            "200": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "properties": {
+                      "uuid": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  }
+                }
+              },
+              "description": "UUID in JSON"
+            }
+          },
+          "summary": "Generate a UUID v4"
+        }
+      },
+      "/xml": {
+        "get": {
+          "operationId": "xmlGET",
+          "responses": {
+            "200": {
+              "content": {
+                "application/xml": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "description": "XML payload"
+            }
+          },
+          "summary": "Return sample XML"
+        }
+      }
+    },
+    "security": [
+      {
+        "authToken": []
+      }
+    ],
+    "servers": [
+      {
+        "url": "http://localhost:8080/httpbingo"
+      },
+      {
+        "url": "https://httpbingo.org"
+      }
+    ],
+    "x-tyk-api-gateway": {
+      "info": {
+        "dbId": "6902d4f489196c00011d7d6c",
+        "id": "f96643ab318b4eb873810a2385295b2d",
+        "name": "httpbingo API",
+        "orgId": "6902d4f489196c00011d7d6a",
+        "state": {
+          "active": true
+        }
+      },
+      "middleware": {
+        "global": {
+          "cache": {
+            "cacheAllSafeRequests": true,
+            "enabled": true,
+            "timeout": 10
+          },
+          "trafficLogs": {
+            "enabled": true
+          }
+        },
+        "operations": {
+          "envGET": {
+            "allow": {
+              "enabled": true
+            }
+          },
+          "etag/{etag}GET": {
+            "allow": {
+              "enabled": true
+            },
+            "validateRequest": {
+              "enabled": true,
+              "errorResponseCode": 422
+            }
+          },
+          "getGET": {
+            "allow": {
+              "enabled": true
+            },
+            "validateRequest": {
+              "enabled": true,
+              "errorResponseCode": 422
+            }
+          },
+          "gzipGET": {
+            "allow": {
+              "enabled": true
+            }
+          },
+          "headersGET": {
+            "allow": {
+              "enabled": true
+            }
+          },
+          "hidden-basic-auth/{user}/{password}GET": {
+            "allow": {
+              "enabled": true
+            },
+            "validateRequest": {
+              "enabled": true,
+              "errorResponseCode": 422
+            }
+          },
+          "ipGET": {
+            "allow": {
+              "enabled": true
+            }
+          },
+          "jsonGET": {
+            "allow": {
+              "enabled": true
+            }
+          },
+          "mockget": {
+            "allow": {
+              "enabled": true
+            },
+            "mockResponse": {
+              "body": "{\n  \"message\": \"This is a Tyk Mock Response!\"\n}",
+              "code": 200,
+              "enabled": true,
+              "headers": [
+                {
+                  "name": "content-type",
+                  "value": "application/json"
+                }
+              ]
+            }
+          },
+          "redirect-toGET": {
+            "allow": {
+              "enabled": true
+            },
+            "validateRequest": {
+              "enabled": true,
+              "errorResponseCode": 422
+            }
+          },
+          "redirect/{n}GET": {
+            "allow": {
+              "enabled": true
+            },
+            "validateRequest": {
+              "enabled": true,
+              "errorResponseCode": 422
+            }
+          },
+          "relative-redirect/{n}GET": {
+            "allow": {
+              "enabled": true
+            },
+            "validateRequest": {
+              "enabled": true,
+              "errorResponseCode": 422
+            }
+          },
+          "sseGET": {
+            "allow": {
+              "enabled": true
+            },
+            "validateRequest": {
+              "enabled": true,
+              "errorResponseCode": 422
+            }
+          },
+          "status/{code}GET": {
+            "allow": {
+              "enabled": true
+            },
+            "validateRequest": {
+              "enabled": true,
+              "errorResponseCode": 422
+            }
+          },
+          "stream-bytes/{n}GET": {
+            "allow": {
+              "enabled": true
+            },
+            "validateRequest": {
+              "enabled": true,
+              "errorResponseCode": 422
+            }
+          },
+          "stream/{n}GET": {
+            "allow": {
+              "enabled": true
+            },
+            "validateRequest": {
+              "enabled": true,
+              "errorResponseCode": 422
+            }
+          },
+          "unstableGET": {
+            "allow": {
+              "enabled": true
+            },
+            "validateRequest": {
+              "enabled": true,
+              "errorResponseCode": 422
+            }
+          },
+          "user-agentGET": {
+            "allow": {
+              "enabled": true
+            }
+          },
+          "uuidGET": {
+            "allow": {
+              "enabled": true
+            }
+          },
+          "xmlGET": {
+            "allow": {
+              "enabled": true
+            },
+            "transformResponseBody": {
+              "body": "e3sgLiB8IGpzb25NYXJzaGFsIHwgcmVwbGFjZSAiLSIgIiIgfX0=",
+              "enabled": true,
+              "format": "xml"
+            },
+            "transformResponseHeaders": {
+              "add": [
+                {
+                  "name": "content-type",
+                  "value": "application/json"
+                }
+              ],
+              "enabled": true
+            }
+          }
+        }
+      },
+      "server": {
+        "authentication": {
+          "enabled": false,
+          "securitySchemes": {
+            "authToken": {
+              "enabled": true
+            }
+          }
+        },
+        "listenPath": {
+          "strip": true,
+          "value": "/httpbingo"
+        }
+      },
+      "upstream": {
+        "url": "http://httpbin:8080"
+      }
+    }
+  },
+  "hook_references": [],
+  "is_site": false,
+  "sort_by": 0,
+  "user_group_owners": [],
+  "user_owners": []
+}

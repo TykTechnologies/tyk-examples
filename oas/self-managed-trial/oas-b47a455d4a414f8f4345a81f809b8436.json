@@ -1,0 +1,83 @@
+{
+  "oas": {
+    "components": {
+      "securitySchemes": {
+        "jwtAuth": {
+          "bearerFormat": "JWT",
+          "scheme": "bearer",
+          "type": "http"
+        }
+      }
+    },
+    "info": {
+      "title": "F1 API",
+      "version": "1.0.0"
+    },
+    "openapi": "3.0.3",
+    "paths": {},
+    "security": [
+      {
+        "jwtAuth": []
+      }
+    ],
+    "servers": [
+      {
+        "url": "http://localhost:8080/f1-api/"
+      }
+    ],
+    "x-tyk-api-gateway": {
+      "info": {
+        "dbId": "6902d4f489196c00011d7d6d",
+        "id": "b47a455d4a414f8f4345a81f809b8436",
+        "name": "F1 API",
+        "orgId": "6902d4f489196c00011d7d6a",
+        "state": {
+          "active": true
+        }
+      },
+      "middleware": {
+        "global": {
+          "contextVariables": {
+            "enabled": true
+          },
+          "trafficLogs": {
+            "enabled": true
+          }
+        }
+      },
+      "server": {
+        "authentication": {
+          "enabled": true,
+          "securitySchemes": {
+            "jwtAuth": {
+              "defaultPolicies": [
+                "6902d4f489196c00011d7d71"
+              ],
+              "enabled": true,
+              "header": {
+                "enabled": true,
+                "name": "Authorization"
+              },
+              "identityBaseField": "sub",
+              "policyFieldName": "pol",
+              "signingMethod": "hmac",
+              "source": "dG9wc3BlY2lhbDI1NnNoYXJlZGJpdGxvbmdzZWNyZXQ="
+            }
+          }
+        },
+        "listenPath": {
+          "strip": true,
+          "value": "/f1-api/"
+        }
+      },
+      "upstream": {
+        "url": "https://f1api.dev/api"
+      }
+    }
+  },
+  "hook_references": [],
+  "is_site": false,
+  "sort_by": 0,
+  "user_group_owners": [],
+  "user_owners": []
+}
