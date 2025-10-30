@@ -9,19 +9,5 @@
       "file": "oas-f96643ab318b4eb873810a2385295b2d.json",
       "oas": {}
     }
-  ],
-  "policies": [
-    {
-      "file": "policy-6902d4f489196c00011d7d6e.json"
-    },
-    {
-      "file": "policy-6902d4f489196c00011d7d6f.json"
-    },
-    {
-      "file": "policy-6902d4f489196c00011d7d70.json"
-    },
-    {
-      "file": "policy-6902d4f489196c00011d7d71.json"
-    }
   ]
 }
