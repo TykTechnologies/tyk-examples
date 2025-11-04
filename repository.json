@@ -61,6 +61,14 @@
           "features": [
           ],
           "minTykVersion": "5.6"
+        },
+        {
+          "location": "oas/self-managed-trial",
+          "name": "Demo APIs from Tyk Trial",
+          "description": "Sample APIs from Tyk's self-managed trial",
+          "features": [
+          ],
+          "minTykVersion": "5.10"
         }
       ]
     }
