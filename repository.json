@@ -63,9 +63,17 @@
           "minTykVersion": "5.6"
         },
         {
-          "location": "oas/self-managed-trial",
-          "name": "Demo APIs from Tyk Trial",
+          "location": "oas/httpbin",
+          "name": "HTTPBIN API",
           "description": "Sample APIs from Tyk's self-managed trial",
+          "features": [
+          ],
+          "minTykVersion": "5.10"
+        },
+        {
+          "location": "oas/f1api",
+          "name": "F1 API",
+          "description": "API for Formula One (F1) data",
           "features": [
           ],
           "minTykVersion": "5.10"
